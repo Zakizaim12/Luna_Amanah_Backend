@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         //    'email' => 'test@example.com',
         //]);
         User::create([
-            'name' => 'Abib Safaqdillah',
-            'username' => 'abib',
-            'email' => 'abibsafaqdillah@gmail.com',
+            'name' => 'Admin',
+            'username' => 'admin',
+            'email' => 'adminlunah-amanah@gmail.com',
             'password' => bcrypt('password')
         ]);
         // User::create([
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'mohammadabibtest@gmail.com',
         //     'password' => bcrypt('54321')
         // ]);
-        \App\Models\User::factory(3)->create();
+        //\App\Models\User::factory(3)->create();
         Category::create([
             'name' => 'Haji',
             'slug' => 'haji',
