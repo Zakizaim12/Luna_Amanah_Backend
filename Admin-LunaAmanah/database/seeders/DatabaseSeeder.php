@@ -34,16 +34,16 @@ class DatabaseSeeder extends Seeder
         // ]);
         //\App\Models\User::factory(3)->create();
         Category::create([
-            'name' => 'Haji',
-            'slug' => 'haji',
+            'name' => 'Paket Umrah',
+            'slug' => 'paket-umrah',
         ]);
         Category::create([
-            'name' => 'Umrah',
-            'slug' => 'umrah',
+            'name' => 'Paket Haji',
+            'slug' => 'paket-haji',
         ]);
         Category::create([
-            'name' => 'Tour',
-            'slug' => 'tour',
+            'name' => 'Paket Tour',
+            'slug' => 'paket-tour',
         ]);
         \App\Models\Post::factory(20)->create();
         // Post::create([

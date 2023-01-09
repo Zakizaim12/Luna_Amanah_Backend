@@ -25,6 +25,13 @@ Route::get('/', function () {
         'active' => 'home'
     ]);
 });
+
+Route::get('/contact', function(){
+    return view('contact',[
+        "title" => 'Contact',
+        'active' => 'contact'
+    ]);
+});
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
@@ -68,6 +75,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');

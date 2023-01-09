@@ -45,7 +45,22 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
+            'harga_paket' => 'required',
             'category_id' => 'required',
+            'jadwal' => 'required|max:255',
+            'durasi' => 'required',
+            'total_seat' => 'required',
+            'berangkat_dari' => 'required|max:255',
+            'maskapai' => 'required|max:255',
+            'hari1' => 'required',
+            'hari2' => 'required',
+            'hari3' => 'required',
+            'hari4' => 'required',
+            'hari5' => 'required',
+            'hari6' => 'required',
+            'hari7' => 'required',
+            'hari8' => 'required',
+            'hari9' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
@@ -53,7 +68,6 @@ class DashboardPostController extends Controller
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
         Post::create($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'New Post has been Added!');
@@ -103,7 +117,23 @@ class DashboardPostController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
+            'slug' => 'required|unique:posts',
+            'harga_paket' => 'required',
             'category_id' => 'required',
+            'jadwal' => 'required|max:255',
+            'durasi' => 'required',
+            'total_seat' => 'required',
+            'berangkat_dari' => 'required|max:255',
+            'maskapai' => 'required|max:255',
+            'hari1' => 'required',
+            'hari2' => 'required',
+            'hari3' => 'required',
+            'hari4' => 'required',
+            'hari5' => 'required',
+            'hari6' => 'required',
+            'hari7' => 'required',
+            'hari8' => 'required',
+            'hari9' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
         ];
@@ -118,7 +148,6 @@ class DashboardPostController extends Controller
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
         Post::where('id', $post->id)->update($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'Post has been updated!');

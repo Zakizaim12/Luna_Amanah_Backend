@@ -8,20 +8,14 @@ use App\Models\User;
 use App\Models\Category;
 class PostController extends Controller
 {
-    public function index(){ 
-        $title = '';   
-        if(request('category')){
-            $category = Category::firstWhere('slug', request('category'));
-            $title = ' in '.$category->name;
-        }
-        if(request('author')){
-            $author = User::firstWhere('username', request('author'));
-            $title = ' by '.$author->name;
-        }    
+    public function index(){    
         return view('posts', [
-            "title" => "All Posts".$title,
             "active" => 'posts',
-            "posts" => Post::latest()->filter(request(['search' , 'category', 'author']))->paginate(7)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search' , 'category', 'author']))->paginate(6)->withQueryString()
+        ]);
+        return view('home', [
+            "active" => 'home',
+            "posts" => Post::latest()->filter(request(['search' , 'category', 'author']))->paginate(3)->withQueryString()
         ]);
     }
     public function show(Post $post){

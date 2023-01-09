@@ -1,48 +1,82 @@
-@extends('layouts.main')
-@section('container')
-<h1 class="mb-3 text-center">{{ $title }}</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row justify-content-center mb-3">
-    <div class="col-md-6">
-        <form action="/posts">
-            @if(request('category'))
-                <input type="hidden" name="category" value="{{ request('category')  }}">
-            @endif
-            @if(request('author'))
-                <input type="hidden" name="author" value="{{ request('author')  }}">
-            @endif
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
-                <button class="btn btn-danger" type="submit">Search</button>
-            </div>
-        </form>
-    </div>
-</div>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-@if($posts->count())
-    <div class="card mb-3">
-        @if($posts[0]->image)
-            <div style="max-height: 400px; max-weight: 1200px; overflow: hidden;">
-                <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-fluid">
+  <title>Luna Amanah</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logoicon-01.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!--Font Awesome-->
+  <script src="https://kit.fontawesome.com/a2a65e7040.js" crossorigin="anonymous"></script>
+
+  <!-- =======================================================
+  * Template Name: Impact - v1.1.1
+  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+
+<body>
+  
+@include('partials.navbar')
+
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs ">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h2>Paket Umroh</h2>
+              </div>
             </div>
-        @else
-            <img src="http://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{ $posts[0]->category->name }}">
-        @endif
-        
-        <div class="card-body text-center">
-            <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
-            <p><small class="text-muted">By. <a href="/posts?author={{ $posts[0]->author->username ?? 'None' }}" class="text-decoration-none">{{ $posts[0]->author->name ?? 'None' }}</a> in <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }} </a>{{ $posts[0]->created_at->diffForHumans() }}</small></p>
-            <p class="card-text">{{ $posts[0]->excerpt }}</p>
-            <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
+          </div>
         </div>
-    </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="/categories">Paket Perjalanan</a></li>
+              <li>Paket Umroh</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Breadcrumbs -->
+      <main class="paket-umroh">
 
+          <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <div class="row">
+      @include('partials.filter')
+@if($posts->count())
 <div class="container">
     <div class="row">
-    @foreach ($posts->skip(1) as $post)
+    @foreach ($posts as $post)
         <div class="col-md-4 mb-3">
         <div class="card">
-            <div class="position-absolute bg-dark px-3 py-2 text-white"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+            <div class="position-absolute bg-dark px-3 py-2 text-white"><a class="text-white text-decoration-none">{{ $post->durasi }} hari</a></div>
             @if($post->image)
                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
             @else
@@ -50,9 +84,15 @@
             @endif 
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
-                <p><small class="text-muted">By. <a href="/posts?author={{ $posts[0]->author->username ?? 'None' }}" class="text-decoration-none">{{ $post->author->name ?? 'None' }}</a> {{ $post->created_at->diffForHumans() }}</small></p>
-                <p class="card-text">{{ $post->excerpt }}</p>
-                <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more</a>
+                <p><small class="text-muted">By. <a href="/posts?author={{ $post->author->username ?? 'None' }}" class="text-decoration-none">{{ $post->author->name ?? 'None' }}</a> {{ $post->created_at->diffForHumans() }}</small></p>
+                <p class="card-text">Seat Tersisa : 19</p>
+                <p class="card-text">Rp. {{ $post->harga_paket }}</p>
+                <p class="card-text">Jadwal Keberangkatan : {{ $post->jadwal }}</p>
+                <p class="card-text">Total Seat : {{ $post->total_seat }} pax</p>
+                <p class="card-text">Berangkat dari : {{ $post->berangkat_dari }}</p>
+                <p class="card-text">Maskapai : {{ $post->maskapai }}</p>
+                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                <a href="/posts/{{ $post->slug }}" class="button btn btn-primary">Detail Paket</a>
             </div>
         </div>
         </div>
@@ -63,8 +103,30 @@
 @else
     <p class="text-center fs-4">No Post Found.</p>
 @endif
+</div>
+</div>
+</main>
+<!-- //pagination -->
 <div class="d-flex justify-content-center">
     {{ $posts->links() }}
 </div>
 
-@endsection
+
+@include('partials.footer')
+      <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
+
+
+    
