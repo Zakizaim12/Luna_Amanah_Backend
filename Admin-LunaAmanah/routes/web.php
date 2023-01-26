@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardPembayaranController;
+use App\Http\Controllers\DashboardDakwahController;
+use App\Http\Controllers\DakwahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,13 @@ Route::get('/', function () {
     return view('home', [
         "title" => "Home",
         'active' => 'home'
+    ]);
+});
+
+Route::get('/booking', function () {
+    return view('booking', [
+        "title" => "Booking",
+        'active' => 'booking'
     ]);
 });
 
@@ -43,6 +52,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', [PostController::class, 'index']);
+
 
 //halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
@@ -81,3 +91,7 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 Route::get('/dashboard/pembayaran', [DashboardPembayaranController::class, 'bayar'])->middleware('auth');
+
+Route::resource('/dashboard/dakwahs', DashboardDakwahController::class)->middleware('auth');
+Route::get('/dakwahs', [DakwahController::class, 'index']);
+Route::get('dakwahs/{dakwah:slug}', [DakwahController::class, 'show']);

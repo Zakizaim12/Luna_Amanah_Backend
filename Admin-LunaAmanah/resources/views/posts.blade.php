@@ -70,13 +70,15 @@
           <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
           <div class="row">
       @include('partials.filter')
+
+
 @if($posts->count())
 <div class="container">
     <div class="row">
     @foreach ($posts as $post)
         <div class="col-md-4 mb-3">
         <div class="card">
-            <div class="position-absolute bg-dark px-3 py-2 text-white"><a class="text-white text-decoration-none">{{ $post->durasi }} hari</a></div>
+            <div class="position-absolute bg-dark px-3 py-2 text-white"><a class="text-white text-decoration-none">{{ $post->durasi->name }}</a></div>
             @if($post->image)
                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
             @else
@@ -100,12 +102,130 @@
     </div>
 </div>
 
+
+{{-- @if($posts->count())
+<div class="container">
+  <div class="row">
+
+@foreach ($posts as $post)
+<!-- Start List Paket -->
+<div id="list" class="list">
+  <div id="list-card" class="list-card">
+          <div class="row posts-list">
+              <!--Start Card List Paket-->
+              <div class="col-xl-4 col-lg-2">
+                <div class="card">
+
+                  <!--Image card-->
+                  <div class="post-img">
+                    <img src="../assets/img/paket/cover_umroh.png" class="img-fluid">
+                  </div>
+                   <!--End Image card-->
+
+                   <!--Seat Tersisa-->
+                  <div class="seat">
+                    <h4>Seat Tersisa : 19</h4>
+                  </div>
+                  <!--End Seat Tersisa-->
+
+                  <!--Judul-->
+                    <h2 class="title">
+                    <a href="detail.html">{{ $post->title }}</a>
+                    </h2>
+                  <!--End Judul-->
+                  
+                  <!--Harga Paket-->
+                    <p class="harga">Rp 20.000.000</p>
+                  <!--End Harga Paket-->
+
+                    <div class="container">
+
+                    <div class="jadwal">
+                      <div class="row">
+                        <div class="col-8">
+                          <p class="category"><span class="fa fa-calendar"></span>  Jadwal Keberangkatan :</p>
+                        </div>
+                        <div class="col-4">
+                          <p class="right"><time datetime="2023-01-01"></time>1 januari 2023</p>
+                        </div>
+                      </div>
+                    </div>
+                        
+                    <div class="total-seat">
+                      <div class="row">
+                        <div class="col-8">
+                            <p><span class="fa fa-user"></span> Total Seat :</p>
+                        </div>
+                        <div class="col-4">
+                                <p class="right">60 pax</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="lokasi">
+                      <div class="row">
+                        <div class="col-8">
+                          <p><span class="fa fa-map-marker"></span> Berangkat dari :</p>
+                        </div>
+                        <div class="col-4">
+                              <p class="right">Makassar</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    
+                    <div class="maskapai">
+                        <div class="row">
+                          <div class="col-4">
+                              <p><span class="fa fa-plane"></span> Maskapai :</p>
+                          </div>
+                          <div class="col-8">
+                              <p class="right">Garuda airlines</p>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="hotel">
+                      <div class="row">
+                        <div class="col-8">
+                          <p><span class="fa fa-building"></span> Hotel :</p>
+                        </div>
+                        <div class="col-4">
+                          <p class="right"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    </div>
+                    
+                    <div class="btn-detail">
+                      <div class="button">
+                        <a href="/posts/{{ $post->slug }}" ><p>Detail Paket</p> </a>
+                      </div>
+                    </div>
+
+                    <div class="hari">
+                      <p class="post-category" hidden>9</p>
+                      <p>9 hari</p>
+                    </div>
+
+                </div> 
+              </div>
+              <!--End Start Card List Paket-->  
+          </div>
+        </div>
+</div>
+@endforeach
+  </div>
+</div> --}}
+<!-- End List Paket -->
 @else
     <p class="text-center fs-4">No Post Found.</p>
 @endif
 </div>
 </div>
 </main>
+
 <!-- //pagination -->
 <div class="d-flex justify-content-center">
     {{ $posts->links() }}

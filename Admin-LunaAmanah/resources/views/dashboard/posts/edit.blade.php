@@ -37,10 +37,15 @@
     </div>
     <div class="mb-3">
         <label for="durasi" class="form-label">Durasi</label>
-        <input type="text" class="form-control @error('durasi') is-invalid @enderror" id="durasi" name="durasi" required value="{{ old('durasi' , $post->durasi) }}">
-        @error('durasi')
-          <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
+        <select class="form-select" name="durasi_id">
+        @foreach($durasi as $durasi)    
+        @if(old('durasi_id') == $durasi->id)
+            <option value="{{ $durasi->id }}" selected>{{ $durasi->name }}</option>
+        @else
+            <option value="{{ $durasi->id }}">{{ $durasi->name }}</option>
+        @endif 
+        @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="total_seat" class="form-label">Total Seat</label>

@@ -17,7 +17,7 @@
 <header id="header" class="header d-flex align-items-center">
 
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center">
+    <a href="/" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png">
     </a>
     <nav id="navbar" class="navbar">
@@ -25,7 +25,7 @@
         <li><a class="nav-link {{ ($active === "home") ? 'active' : '' }}" aria-current="page" href="/">Home</a></li>
         <li><a class="nav-link {{ ($active === "about") ? 'active' : '' }}"href="/about">Tentang Kami</a></li>
         <li><a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Paket Perjalanan</a></li>
-        <li><a href="blog.html">Informasi</a></li>
+        <li><a class="nav-link {{ ($active === "dakwahs") ? 'active' : '' }}" href="/dakwahs">Informasi</a></li>
         <li><a class="nav-link {{ ($active === "contact") ? 'active' : '' }}" href="/contact">Hubungi Kami</a></li>
       </ul>
       <ul class="navbar-nav ms-auto">

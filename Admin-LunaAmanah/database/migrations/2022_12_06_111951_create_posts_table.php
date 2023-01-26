@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
+            $table->foreignId('durasi_id');
             $table->foreignId('user_id');
             $table->string('title');
             $table->integer('harga_paket');
             $table->text('jadwal');
-            $table->integer('durasi');
             $table->integer('total_seat');
             $table->text('berangkat_dari');
             $table->text('maskapai');

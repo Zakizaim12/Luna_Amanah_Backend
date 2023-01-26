@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Durasi;
+use App\Models\Category;
+use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,6 +35,30 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('54321')
         // ]);
         //\App\Models\User::factory(3)->create();
+        Durasi::create([
+            'name' => '9 hari'
+        ]);
+        Durasi::create([
+            'name' => '10 hari'
+        ]);
+        Durasi::create([
+            'name' => '11 hari'
+        ]);
+        Durasi::create([
+            'name' => '12 hari'
+        ]);
+        Durasi::create([
+            'name' => '13 hari'
+        ]);
+        Durasi::create([
+            'name' => '14 hari'
+        ]);
+        Durasi::create([
+            'name' => '15 hari'
+        ]);
+        Durasi::create([
+            'name' => '16 hari'
+        ]);
         Category::create([
             'name' => 'Paket Umrah',
             'slug' => 'paket-umrah',
@@ -46,6 +72,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'paket-tour',
         ]);
         \App\Models\Post::factory(20)->create();
+        \App\Models\Dakwah::factory(20)->create();
         // Post::create([
         //     'title' => 'Judul Pertama',
         //     'category_id' => 1,

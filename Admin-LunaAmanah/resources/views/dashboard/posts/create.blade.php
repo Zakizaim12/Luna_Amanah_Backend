@@ -35,13 +35,6 @@
         @enderror
     </div>
     <div class="mb-3">
-        <label for="durasi" class="form-label">Durasi</label>
-        <input type="text" class="form-control @error('durasi') is-invalid @enderror" id="durasi" name="durasi" required value="{{ old('durasi') }}">
-        @error('durasi')
-          <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="mb-3">
         <label for="total_seat" class="form-label">Total Seat</label>
         <input type="text" class="form-control @error('total_seat') is-invalid @enderror" id="total_seat" name="total_seat" required value="{{ old('total_seat') }}">
         @error('total_seat')
@@ -61,6 +54,18 @@
         @error('maskapai')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
+    </div>
+    <div class="mb-3">
+        <label for="durasi" class="form-label">Durasi</label>
+        <select class="form-select" name="durasi_id">
+        @foreach($durasi as $durasi)    
+        @if(old('durasi_id') == $durasi->id)
+            <option value="{{ $durasi->id }}" selected>{{ $durasi->name }}</option>
+        @else
+            <option value="{{ $durasi->id }}">{{ $durasi->name }}</option>
+        @endif 
+        @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="hari1" class="form-label">Hari 1</label>

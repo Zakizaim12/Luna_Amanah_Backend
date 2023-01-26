@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Durasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,8 @@ class DashboardPostController extends Controller
     public function create()
     {
         return view('dashboard.posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'durasi' => Durasi::all()
         ]);
     }
 
@@ -48,7 +50,7 @@ class DashboardPostController extends Controller
             'harga_paket' => 'required',
             'category_id' => 'required',
             'jadwal' => 'required|max:255',
-            'durasi' => 'required',
+            'durasi_id' => 'required',
             'total_seat' => 'required',
             'berangkat_dari' => 'required|max:255',
             'maskapai' => 'required|max:255',
@@ -102,7 +104,8 @@ class DashboardPostController extends Controller
         }
         return view('dashboard.posts.edit', [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'durasi' => Durasi::all()
         ]);
     }
 
@@ -120,8 +123,8 @@ class DashboardPostController extends Controller
             'slug' => 'required|unique:posts',
             'harga_paket' => 'required',
             'category_id' => 'required',
+            'durasi_id' => 'required',
             'jadwal' => 'required|max:255',
-            'durasi' => 'required',
             'total_seat' => 'required',
             'berangkat_dari' => 'required|max:255',
             'maskapai' => 'required|max:255',

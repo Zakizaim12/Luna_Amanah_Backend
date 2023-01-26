@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(mt_rand(2,8)),
             'harga_paket' => fake()->randomNumber(8,true),
             'jadwal' => fake()->sentence(mt_rand(1,2)),
-            'durasi' => fake()->randomNumber(2,true),
+            'durasi_id' => mt_rand(1,8),
             'total_seat' => fake()->randomNumber(2,true),
             'berangkat_dari' => fake()->sentence(mt_rand(1,2)),
             'maskapai' => fake()->sentence(mt_rand(1,2)),

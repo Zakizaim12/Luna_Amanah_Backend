@@ -25,12 +25,14 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <!--Font Awesome-->
   <script src="https://kit.fontawesome.com/a2a65e7040.js" crossorigin="anonymous"></script>
 </head>
+
+<body>
 
 <body>
 
@@ -49,24 +51,30 @@
           </div> -->
         </div>
         <div class="banner">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="tess.png" class="d-block w-100">
+                <img src="assets/img/banner/banner-01.png" class="d-block w-100">
               </div>
               <div class="carousel-item">
-                <img src="tess.png" class="d-block w-100">
+                <img src="assets/img/banner/banner-01.png" class="d-block w-100">
               </div>
               <div class="carousel-item">
-                <img src="tess.png" class="d-block w-100">
+                <img src="assets/img/banner/banner-01.png" class="d-block w-100">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="fa-solid fa-chevron-left icon-left"></span>
               <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="fa-solid fa-chevron-right icon-right"></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -81,32 +89,32 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-easel"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <i class="fa-solid bi-file-earmark-person random"></i>
+              <div class="title">Paket Umroh</div>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-gem"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Sed ut perspiciatis</a></h4>
+              <i class="fa-solid bi-file-earmark-person random"></i>
+              <div class="title">Paket Haji</div>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Magni Dolores</a></h4>
+              <i class="fa-solid bi-file-earmark-person random"></i>
+              <div class="title">Paket Tour</div>
             </div>
           </div>
           <!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Nemo Enim</a></h4>
+              <i class="fa-solid bi-file-earmark-person random"></i>
+              <div class="title">Informasi</div>
             </div>
           </div>
           <!--End Icon Box -->
@@ -121,6 +129,26 @@
 
   <main id="main">
     
+     <!-- ======= Clients Section ======= -->
+     <section id="clients" class="clients">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/traveloka.png" class="img-fluid" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Clients Section -->
     <!-- ======= Our Services Section ======= -->
     <section id="services" class="services sections-bg">
       <div class="container" data-aos="fade-up">
@@ -135,69 +163,68 @@
           <div class="col-lg-4 col-md-6">
             <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-activity"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Nesciunt Mete</h3>
+              <h3>Lorem Ipsum</h3>
               <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
+            <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-broadcast"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3>Lorem Ipsum</h3>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
+            <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-easel"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3>Lorem Ipsum</h3>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
+            <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3>Lorem Ipsum</h3>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
+            <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3>Lorem Ipsum</h3>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          <!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
+            <div class="service-item  position-relative">
               <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
+                <i class="bi bi-quote"></i>
               </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <h3>Lorem Ipsum</h3>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
-          </div><!-- End Service Item -->
-
+          </div>
+          <!-- End Service Item -->
         </div>
 
       </div>
@@ -208,98 +235,339 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Recent Blog Posts</h2>
+          <h2>Paket Terbaru</h2>
           <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p>
         </div>
 
         <div class="row gy-4">
 
-          <div class="col-xl-4 col-md-6">
-            <article>
+          <div id="list" class="list">
+            <div id="list-card" class="list-card">
+                  <div class="container" data-aos="fade-up">
+                    <div class="row gy-2 posts-list">
+                      
+                        <!--Start Card List Paket-->
+                        <div class="col-xl-4 col-lg-2">
+                          <div class="card">
 
-              <div class="post-img">
-                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-              </div>
+                            <!--Image card-->
+                            <div class="post-img">
+                              <img src="../assets/img/paket/cover_umroh.png" class="img-fluid">
+                            </div>
+                             <!--End Image card-->
 
-              <p class="post-category">Politics</p>
+                             <!--Seat Tersisa-->
+                            <div class="seat">
+                              <h4>Seat Tersisa : 19</h4>
+                            </div>
+                            <!--End Seat Tersisa-->
 
-              <h2 class="title">
-                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-              </h2>
+                            <!--Judul-->
+                              <h2 class="title">
+                              <a href="detail.html">Dolorum optio tempore voluptas dignissimos</a>
+                              </h2>
+                            <!--End Judul-->
+                            
+                            <!--Harga Paket-->
+                              <p class="harga">Rp 20.000.000</p>
+                            <!--End Harga Paket-->
 
-              <div class="d-flex align-items-center">
-                <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Maria Doe</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p>
-                </div>
-              </div>
+                              <div class="container">
 
-            </article>
-          </div><!-- End post list item -->
+                              <div class="jadwal">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p class="category"><span class="fa fa-calendar"></span>  Jadwal Keberangkatan :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><time datetime="2023-01-01"></time>1 januari 2023</p>
+                                  </div>
+                                </div>
+                              </div>
+                                  
+                              <div class="total-seat">
+                                <div class="row">
+                                  <div class="col-8">
+                                      <p><span class="fa fa-user"></span> Total Seat :</p>
+                                  </div>
+                                  <div class="col-4">
+                                          <p class="right">60 pax</p>
+                                  </div>
+                                </div>
+                              </div>
 
-          <div class="col-xl-4 col-md-6">
-            <article>
+                              <div class="lokasi">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p><span class="fa fa-map-marker"></span> Berangkat dari :</p>
+                                  </div>
+                                  <div class="col-4">
+                                        <p class="right">Makassar</p>
+                                  </div>
+                                </div>
+                              </div>
 
-              <div class="post-img">
-                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-              </div>
+                              
+                              <div class="maskapai">
+                                  <div class="row">
+                                    <div class="col-4">
+                                        <p><span class="fa fa-plane"></span> Maskapai :</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="right">Garuda airlines</p>
+                                    </div>
+                                </div>
+                              </div>
 
-              <p class="post-category">Sports</p>
+                              <div class="hotel">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p><span class="fa fa-building"></span> Hotel :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                                  </div>
+                                </div>
+                              </div>
 
-              <h2 class="title">
-                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-              </h2>
+                              </div>
+                              
+                              <div class="btn-detail">
+                                <div class="button">
+                                  <a href="Detail_Paket/detail-paket.html"><p>Detail Paket</p> </a>
+                                </div>
+                              </div>
 
-              <div class="d-flex align-items-center">
-                <img src="assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Allisa Mayer</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                  </p>
-                </div>
-              </div>
+                              <div class="hari">
+                                <p class="post-category" hidden>9</p>
+                                <p>9 hari</p>
+                              </div>
 
-            </article>
-          </div><!-- End post list item -->
+                          </div> 
+                        </div>
+                        <!--End Start Card List Paket-->
+                        
+                        <!--Start Card List Paket-->
+                        <div class="col-xl-4 col-lg-2">
+                          <div class="card">
 
-          <div class="col-xl-4 col-md-6">
-            <article>
+                            <!--Image card-->
+                            <div class="post-img">
+                              <img src="../assets/img/paket/cover_umroh.png" class="img-fluid">
+                            </div>
+                             <!--End Image card-->
 
-              <div class="post-img">
-                <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-              </div>
+                             <!--Seat Tersisa-->
+                            <div class="seat">
+                              <h4>Seat Tersisa : 19</h4>
+                            </div>
+                            <!--End Seat Tersisa-->
 
-              <p class="post-category">Entertainment</p>
+                            <!--Judul-->
+                              <h2 class="title">
+                              <a href="detail.html">Dolorum optio tempore voluptas dignissimos</a>
+                              </h2>
+                            <!--End Judul-->
+                            
+                            <!--Harga Paket-->
+                              <p class="harga">Rp 20.000.000</p>
+                            <!--End Harga Paket-->
 
-              <h2 class="title">
-                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-              </h2>
+                              <div class="container">
 
-              <div class="d-flex align-items-center">
-                <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Mark Dower</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 22, 2022</time>
-                  </p>
-                </div>
-              </div>
+                              <div class="jadwal">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p class="category"><span class="fa fa-calendar"></span>  Jadwal Keberangkatan :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><time datetime="2023-01-01"></time>1 januari 2023</p>
+                                  </div>
+                                </div>
+                              </div>
+                                  
+                              <div class="total-seat">
+                                      <div class="row">
+                                        <div class="col-8">
+                                          <p><span class="fa fa-user"></span> Total Seat :</p>
+                                        </div>
+                                        <div class="col-4">
+                                          <p class="right">60 pax</p>
+                                        </div>
+                                      </div>
+                              </div>
 
-            </article>
-          </div><!-- End post list item -->
+                              <div class="lokasi">
+                                          <div class="row">
+                                            <div class="col-8">
+                                              <p><span class="fa fa-map-marker"></span> Berangkat dari :</p>
+                                            </div>
+                                            <div class="col-4">
+                                              <p class="right">Makassar</p>
+                                            </div>
+                                          </div>
+                              </div>
 
-        </div><!-- End recent posts list -->
+                              
+                              <div class="maskapai">
+                                        <div class="row">
+                                          <div class="col-4">
+                                            <p><span class="fa fa-plane"></span> Maskapai :</p>
+                                          </div>
+                                          <div class="col-8">
+                                            <p class="right">Garuda airlines</p>
+                                          </div>
+                                        </div>
+                              </div>
+
+                              <div class="hotel">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p><span class="fa fa-building"></span> Hotel :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              </div>
+                              
+                              <div class="btn-detail">
+                                <div class="button">
+                                  <a href="Detail_Paket/detail-paket.html">
+                                    <p>Detail Paket</p>
+                                </a>
+                                </div>
+                              </div>
+
+                              <div class="hari">
+                                <p class="post-category" hidden>9</p>
+                                <p>9 hari</p>
+                              </div>
+
+                            </div> 
+                        </div>
+                        <!--End Start Card List Paket-->
+
+                        <!--Start Card List Paket-->
+                        <div class="col-xl-4 col-lg-2">
+                          <div class="card">
+
+                            <!--Image card-->
+                            <div class="post-img">
+                              <img src="../assets/img/paket/cover_umroh.png" class="img-fluid">
+                            </div>
+                             <!--End Image card-->
+
+                             <!--Seat Tersisa-->
+                            <div class="seat">
+                              <h4>Seat Tersisa : 19</h4>
+                            </div>
+                            <!--End Seat Tersisa-->
+
+                            <!--Judul-->
+                              <h2 class="title">
+                              <a href="detail.html">Dolorum optio tempore voluptas dignissimos</a>
+                              </h2>
+                            <!--End Judul-->
+                            
+                            <!--Harga Paket-->
+                              <p class="harga">Rp 20.000.000</p>
+                            <!--End Harga Paket-->
+
+                              <div class="container">
+
+                              <div class="jadwal">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p class="category"><span class="fa fa-calendar"></span>  Jadwal Keberangkatan :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><time datetime="2023-01-01"></time>1 januari 2023</p>
+                                  </div>
+                                </div>
+                              </div>
+                                  
+                              <div class="total-seat">
+                                      <div class="row">
+                                        <div class="col-8">
+                                          <p><span class="fa fa-user"></span> Total Seat :</p>
+                                        </div>
+                                        <div class="col-4">
+                                          <p class="right">60 pax</p>
+                                        </div>
+                                      </div>
+                              </div>
+
+                              <div class="lokasi">
+                                          <div class="row">
+                                            <div class="col-8">
+                                              <p><span class="fa fa-map-marker"></span> Berangkat dari :</p>
+                                            </div>
+                                            <div class="col-4">
+                                              <p class="right">Makassar</p>
+                                            </div>
+                                          </div>
+                              </div>
+
+                              
+                              <div class="maskapai">
+                                        <div class="row">
+                                          <div class="col-4">
+                                            <p><span class="fa fa-plane"></span> Maskapai :</p>
+                                          </div>
+                                          <div class="col-8">
+                                            <p class="right">Garuda airlines</p>
+                                          </div>
+                                        </div>
+                              </div>
+
+                              <div class="hotel">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <p><span class="fa fa-building"></span> Hotel :</p>
+                                  </div>
+                                  <div class="col-4">
+                                    <p class="right"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              </div>
+                              
+                              <div class="btn-detail">
+                                <div class="button">
+                                  <a href="Detail_Paket/detail-paket.html">
+                                    <p>Detail Paket</p>
+                                </a>
+                                </div>
+                              </div>
+
+                              <div class="hari">
+                                <p class="post-category" hidden>9</p>
+                                <p>9 hari</p>
+                              </div>
+
+                            </div> 
+                        </div>
+                        <!--End Start Card List Paket-->
+
+                        
+                    </div>
+                  </div>
+            </div>
+      </div>
+
+        </div>
+        <!-- End recent posts list -->
 
       </div>
     </section><!-- End Recent Blog Posts Section -->
 
 
 
-  </main><!-- End #main -->
+  </main>
 
   @include('partials.footer')
 

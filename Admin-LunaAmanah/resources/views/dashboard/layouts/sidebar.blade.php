@@ -10,7 +10,13 @@
           <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
               <span data-feather="file-text" class="align-text-bottom"></span>
-              My Posts
+              Paket Perjalanan
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/dakwahs*') ? 'active' : '' }}" href="/dashboard/dakwahs">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+              Informasi
             </a>
           </li>
           <li class="nav-item">
