@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Durasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,8 @@ class DashboardPostController extends Controller
     public function create()
     {
         return view('dashboard.posts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'durasi' => Durasi::all()
         ]);
     }
 
@@ -46,6 +48,24 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'jadwal' => 'required|max:255',
+            'durasi_id' => 'required',
+            'total_seat' => 'required',
+            'berangkat_dari' => 'required|max:255',
+            'maskapai' => 'required|max:255',
+            'solo' => 'required',
+            'duo' => 'required',
+            'triple' => 'required',
+            'quad' => 'required',
+            'hari1' => 'required',
+            'hari2' => 'required',
+            'hari3' => 'required',
+            'hari4' => 'required',
+            'hari5' => 'required',
+            'hari6' => 'required',
+            'hari7' => 'required',
+            'hari8' => 'required',
+            'hari9' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
@@ -53,7 +73,6 @@ class DashboardPostController extends Controller
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
         Post::create($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'New Post has been Added!');
@@ -88,7 +107,8 @@ class DashboardPostController extends Controller
         }
         return view('dashboard.posts.edit', [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'durasi' => Durasi::all()
         ]);
     }
 
@@ -103,7 +123,26 @@ class DashboardPostController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
+            'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'durasi_id' => 'required',
+            'jadwal' => 'required|max:255',
+            'total_seat' => 'required',
+            'berangkat_dari' => 'required|max:255',
+            'maskapai' => 'required|max:255',
+            'solo' => 'required',
+            'duo' => 'required',
+            'triple' => 'required',
+            'quad' => 'required',
+            'hari1' => 'required',
+            'hari2' => 'required',
+            'hari3' => 'required',
+            'hari4' => 'required',
+            'hari5' => 'required',
+            'hari6' => 'required',
+            'hari7' => 'required',
+            'hari8' => 'required',
+            'hari9' => 'required',
             'image' => 'image|file|max:1024',
             'body' => 'required'
         ];
@@ -118,7 +157,6 @@ class DashboardPostController extends Controller
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 150);
         Post::where('id', $post->id)->update($validatedData);
 
         return redirect('/dashboard/posts')->with('success', 'Post has been updated!');
