@@ -58,6 +58,8 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 //halaman single post
 Route::get('posts/{post:slug}/booking', [PostController::class, 'book']);
+Route::post('posts/{post:slug}/booking', [PostController::class, 'book']);
+
 
 Route::get('/categories', function() {
     return view('categories', [

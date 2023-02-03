@@ -206,19 +206,21 @@
                             </div>
                           </div>
                         </div>
-    
+
+                        <form method="post" action="/posts/{{ $post->slug }}/booking">
+                        @csrf
                           <div class="price-category-item">
                             <div class="solo">
                               <div class="row">
                                 <div class="col">
                                   <label class="radio-btn">Solo
-                                    <input type="radio" name="radio">
+                                    <input type="radio" name="radio" value="{{ $post->solo }}">
                                     <span class="checkmark"></span>
                                   </label>
                                 </div>
       
                                 <div class="col">
-                                  <p class="right">Rp {{ $post->solo }}/pax</p>
+                                  <p class="right">{{ $post->formatRupiah('solo') }}/pax</p>
                                 </div>
                               </div>    
                             </div>
@@ -227,13 +229,13 @@
                               <div class="row">
                                 <div class="col">
                                   <label class="radio-btn">Duo
-                                    <input type="radio" name="radio">
+                                    <input type="radio" name="radio" value="{{ $post->duo }}">
                                     <span class="checkmark"></span>
                                   </label>
                                 </div>
       
                                 <div class="col">
-                                  <p class="right">Rp {{ $post->duo }}/pax</p>
+                                  <p class="right">{{ $post->formatRupiah('duo') }}/pax</p>
                                 </div>
                               </div>    
                             </div>
@@ -242,13 +244,13 @@
                               <div class="row">
                                 <div class="col">
                                   <label class="radio-btn">Triple
-                                    <input type="radio" name="radio">
+                                    <input type="radio" name="radio" value="{{ $post->triple }}">
                                     <span class="checkmark"></span>
                                   </label>
                                 </div>
       
                                 <div class="col">
-                                  <p class="right">Rp {{ $post->triple }}/pax</p>
+                                  <p class="right">{{ $post->formatRupiah('triple') }}/pax</p>
                                 </div>
                               </div>    
                             </div>
@@ -258,29 +260,28 @@
                               <div class="row">
                                 <div class="col">
                                   <label class="radio-btn">Quad
-                                    <input type="radio" name="radio">
+                                    <input type="radio" name="radio" value="{{ $post->quad }}">
                                     <span class="checkmark"></span>
                                   </label>
                                 </div>
       
                                 <div class="col">
-                                  <p class="right">Rp {{ $post->quad }}/pax</p>
+                                  <p class="right">{{ $post->formatRupiah('quad') }}/pax</p>
                                 </div>
                               </div>    
                             </div>
-                          </div>
-                          
+                          </div> 
     
                         </div>
                         <button class="booking-btn">
                           <span class="fa fa-whatsapp"></span> Hubungi CS
                         </button>
-                          <button class="booking-btn"> 
-                              <a href="/posts/{{ $post->slug }}/booking">Booking Paket</a> 
+                          <button type="submit" class="booking-btn" name="simpan"> 
+                              <a>Booking Paket</a> 
                           </button>
                         </div>
-    
-                      
+                        </form> 
+
                   </div>
               </section>
             </div>
@@ -615,6 +616,19 @@
   <!-- Template Main JS File -->
   <script src="../../assets/js/main.js"></script>
 
+  <script>
+    function getValue() {
+            var checkboxes = 
+                document.getElementsByName('radio');
+            var result = "";
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    result +=  checkboxes[i].value ;
+                }
+            }
+
+        }
+  </script>
 </body>
 
 </html>

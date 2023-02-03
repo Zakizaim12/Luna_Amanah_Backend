@@ -102,7 +102,6 @@
                     <div class="line"></div>
 
                     <h1 class="title">{{ $post->title }}</h1>
-                    <p>Paket yang di pilih : Quad</p>
                     <div class="paket-item">
                       
                       <div class="jadwal">
@@ -174,8 +173,13 @@
                 <div class="harga-paket">
                   <h1>Konfirmasi Booking</h1>
                   <h2>Total :</h2>
-                  <h3>Rp 68.000.000</h3>
-  
+                  <?php
+                  if(isset($_POST['simpan'])){
+                    echo '<table>';
+                    echo '<tr><td><h3>'.'Rp. '.'</h3></td><td><h3>'.$_POST['radio'].'</h3></td></tr>';
+                    echo '</table>';
+                    }
+                  ?>
   
                   <div class="booking-confirm">
                     <input type="checkbox" name="confirm" id="confirm" required>

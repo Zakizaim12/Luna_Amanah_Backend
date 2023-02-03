@@ -13,10 +13,10 @@
             </form>
             @if($dakwah->image)
                 <div style="max-height: 350px; overflow: hidden;">
-                    <img src="{{ asset('storage/' . $dakwah->image) }}" alt="{{ $dakwah->category->name }}" class="img-fluid mt-3">
+                    <img src="{{ asset('storage/' . $dakwah->image) }}" alt="" class="img-fluid mt-3">
                 </div>
             @else
-                <img src="http://source.unsplash.com/1200x400?{{ $dakwah->category->name }}" alt="{{ $dakwah->category->name }}" class="img-fluid mt-3">
+                <img src="http://source.unsplash.com/1200x400" alt="" class="img-fluid mt-3">
             @endif           
             <article class="my-3 fs-5">{!! $dakwah->body !!}</article>
         </div>

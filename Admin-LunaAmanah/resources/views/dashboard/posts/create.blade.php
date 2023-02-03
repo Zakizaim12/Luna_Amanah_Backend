@@ -239,17 +239,6 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
-        $(window).load(function(){
-          $("#durasi").change(function() {
-			      console.log($("#durasi option:selected").val());
-			      if ($("#durasi option:selected").val() == '10 hari') {
-				      $('#hari11').prop('hidden', 'false');
-			      } else{
-              $('#hari11').prop('hidden', 'true');
-            }
-		      });
-        });
-
 </script>
 
 @endsection

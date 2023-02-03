@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Durasi;
+use App\Models\Category;
+use App\Traits\HasFormatRupiah;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
     use Sluggable;
+    use HasFormatRupiah;
 
     //protected $fillable = ['title', 'body'];
     protected $guarded = ['id'];
