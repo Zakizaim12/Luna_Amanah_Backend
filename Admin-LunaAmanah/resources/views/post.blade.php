@@ -60,7 +60,7 @@
 <header id="header" class="header d-flex align-items-center">
 
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center">
+    <a href="/" class="logo d-flex align-items-center">
       <img src="../assets/img/logo.png">
     </a>
     <nav id="navbar" class="navbar">
@@ -207,80 +207,15 @@
                           </div>
                         </div>
 
-                        <form method="post" action="/posts/{{ $post->slug }}/booking">
-                        @csrf
-                          <div class="price-category-item">
-                            <div class="solo">
-                              <div class="row">
-                                <div class="col">
-                                  <label class="radio-btn">Solo
-                                    <input type="radio" name="radio" value="{{ $post->solo }}">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                </div>
-      
-                                <div class="col">
-                                  <p class="right">{{ $post->formatRupiah('solo') }}/pax</p>
-                                </div>
-                              </div>    
-                            </div>
-      
-                            <div class="duo">
-                              <div class="row">
-                                <div class="col">
-                                  <label class="radio-btn">Duo
-                                    <input type="radio" name="radio" value="{{ $post->duo }}">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                </div>
-      
-                                <div class="col">
-                                  <p class="right">{{ $post->formatRupiah('duo') }}/pax</p>
-                                </div>
-                              </div>    
-                            </div>
-      
-                            <div class="triple">
-                              <div class="row">
-                                <div class="col">
-                                  <label class="radio-btn">Triple
-                                    <input type="radio" name="radio" value="{{ $post->triple }}">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                </div>
-      
-                                <div class="col">
-                                  <p class="right">{{ $post->formatRupiah('triple') }}/pax</p>
-                                </div>
-                              </div>    
-                            </div>
-      
-      
-                            <div class="quad">
-                              <div class="row">
-                                <div class="col">
-                                  <label class="radio-btn">Quad
-                                    <input type="radio" name="radio" value="{{ $post->quad }}">
-                                    <span class="checkmark"></span>
-                                  </label>
-                                </div>
-      
-                                <div class="col">
-                                  <p class="right">{{ $post->formatRupiah('quad') }}/pax</p>
-                                </div>
-                              </div>    
-                            </div>
-                          </div> 
     
                         </div>
                         <button class="booking-btn">
                           <span class="fa fa-whatsapp"></span> Hubungi CS
                         </button>
                           <button type="submit" class="booking-btn" name="simpan"> 
-                              <a>Booking Paket</a> 
+                              <a href="/posts/{{ $post->slug }}/booking">Booking Paket</a> 
                           </button>
                         </div>
-                        </form> 
 
                   </div>
               </section>

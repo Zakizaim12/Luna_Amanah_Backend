@@ -71,7 +71,6 @@
             @endif 
             <div class="card-body"> 
                 <h5 class="card-title"><b>{{ $dakwah->title }}</b></h5>
-                <p><small class="text-muted">By. <a href="/dakwahs?author={{ $dakwah->author->username ?? 'None' }}" class="text-decoration-none">{{ $dakwah->author->name ?? 'None' }}</a> {{ $dakwah->created_at->diffForHumans() }}</small></p>
                 <p class="card-text">{{ $dakwahs[0]->excerpt }}</p>
                 <a href="/dakwahs/{{ $dakwah->slug }}" class="button btn btn-primary btn-danger">Read More</a>
             </div>

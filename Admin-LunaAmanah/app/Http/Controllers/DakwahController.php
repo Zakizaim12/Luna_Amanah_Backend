@@ -7,6 +7,7 @@ use App\Models\Dakwah;
 use App\Models\User;
 use App\Models\Category;
 
+
 class DakwahController extends Controller
 {
     public function index(){ 
@@ -25,6 +26,7 @@ class DakwahController extends Controller
             "dakwahs" => Dakwah::latest()->filter(request(['search' , 'category', 'author']))->paginate(6)->withQueryString()
         ]);
     }
+
     public function show(Dakwah $dakwah){
         return view('dakwah', [
             "title" => "Single dakwah",

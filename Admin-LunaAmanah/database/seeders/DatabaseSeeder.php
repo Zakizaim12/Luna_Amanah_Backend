@@ -7,7 +7,10 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Durasi;
 use App\Models\Category;
+use App\Models\booking;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -71,8 +74,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'Paket Tour',
             'slug' => 'paket-tour',
         ]);
+
+        Status::create([
+            'status_pembayaran' => 'Lunas'
+        ]);
+
+        Status::create([
+            'status_pembayaran' => 'Belum Lunas'
+        ]);
+        Status::create([
+            'status_pembayaran' => 'Tanpa Keterangan'
+        ]);
+        
         \App\Models\Post::factory(20)->create();
         \App\Models\Dakwah::factory(20)->create();
+        \App\Models\booking::factory(5)->create();
         // Post::create([
         //     'title' => 'Judul Pertama',
         //     'category_id' => 1,

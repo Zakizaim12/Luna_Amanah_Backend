@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Durasi;
 use App\Models\Category;
+use App\Models\booking;
 use App\Traits\HasFormatRupiah;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -38,6 +39,9 @@ class Post extends Model
     }
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+    public function booking(){
+        return $this->hasMany(booking::class);
     }
     public function durasi(){
         return $this->belongsTo(Durasi::class);

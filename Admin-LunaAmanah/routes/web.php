@@ -4,11 +4,14 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\DashboardPembayaranController;
-use App\Http\Controllers\DashboardDakwahController;
 use App\Http\Controllers\DakwahController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BookingFrontController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardDakwahController;
+use App\Http\Controllers\DashboardPembayaranController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,14 +55,16 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', [PostController::class, 'index']);
-
+// Route::get('/', [HomeController::class, 'index']);
 
 //halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-//halaman single post
+//halaman booking
 Route::get('posts/{post:slug}/booking', [PostController::class, 'book']);
-Route::post('posts/{post:slug}/booking', [PostController::class, 'book']);
-
+Route::post('posts/{post:slug}/booking', [PostController::class, 'store']);
+// Route::post('posts/{post:slug}/booking', [PostController::class, 'store']);
+// Route::post('posts/{post:slug}/booking', [BookingFrontController::class, 'store']);
+// Route::resource('posts/{post:slug}/booking', BookingFrontController::class);
 
 Route::get('/categories', function() {
     return view('categories', [
@@ -94,8 +99,15 @@ Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::get('/dashboard/pembayaran', [DashboardPembayaranController::class, 'bayar'])->middleware('auth');
+// Route::get('/dashboard/pembayaran', [DashboardPembayaranController::class, 'bayar'])->middleware('auth');
 
 Route::resource('/dashboard/dakwahs', DashboardDakwahController::class)->middleware('auth');
 Route::get('/dakwahs', [DakwahController::class, 'index']);
 Route::get('dakwahs/{dakwah:slug}', [DakwahController::class, 'show']);
+
+Route::resource('/dashboard/pembayaran', BookingController::class)->middleware('auth');
+Route::get('/export/excel', [BookingController::class, 'export'])->middleware('auth');
+// Route::get('/dashboard/pembayaran', [BookingController::class, 'index'])->middleware('auth');
+// Route::delete('/dashboard/pembayaran', [BookingController::class, 'destroy'])->middleware('auth');
+// // Route::get('/dashboard/pembayaran/{{ $booking->title }}', [BookingController::class, 'show'])->middleware('auth');
+// Route::post('/posts/{{ $post->slug }}/booking', [BookingController::class, 'store']);

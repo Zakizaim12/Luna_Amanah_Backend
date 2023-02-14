@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function dakwahs(){
         return $this->hasMany(Dakwah::class);
     }
+
+    public function bookings(){
+        return $this->hasMany(booking::class);
+    }
 }

@@ -35,7 +35,17 @@
 <body>
 
     @include('partials.navbar')
-
+    <div class="mt-2">
+    @if(session()->has('success'))
+    <center>
+    <div class="alert alert-success alert-dismissible fade show col-lg-8" role="alert">
+      {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    </center>
+    @endif
+    </div>
+    
   <main>
     <section class="booking-detail" data-aos="fade-up">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -48,44 +58,45 @@
                   <div class="form-header">
                     <h2>Form Booking</h2>
                     <div class="line"></div>
-                    <form class="form-booking">
+                    <form class="form-booking" action="/posts/{{ $post->slug }}/booking" method="post" enctype="multipart/form-data">
+                    @csrf
                       <div class="row">
                         <div class="col">
-                          <label for="FirstName">Nama Depan :</label>
-                          <input type="text" id="FirstName" placeholder="Masukkan Nama Depan" name="NamaDepan" required>
+                          <label for="nama_depan">Nama Depan :</label>
+                          <input type="text" id="nama_depan" placeholder="Masukkan Nama Depan" name="nama_depan" required value="{{ old('nama_depan') }}">
                         </div>
                         <div class="col">
-                          <label for="LastName">Nama Belakang</label>
-                          <input type="text" id="LastName" placeholder="Masukkan Nama Belakang" name="NamaBelakang" required>
+                          <label for="nama_belakang">Nama Belakang</label>
+                          <input type="text" id="nama_belakang" placeholder="Masukkan Nama Belakang" name="nama_belakang" required value="{{ old('nama_belakang') }}">
                         </div>
                       </div>
+                      <input type="hidden" id="status_id" name="status_id" value="3">
+                      <label for="image">Foto Kartu Identitas</label>
+                      <input type="file" id="image" name="image">
 
-                      <label for="NIK">Foto Kartu Identitas</label>
-                      <input type="file" id="foto-KTP" name="foto-KTP">
+                      <label for="nik">NIK</label>
+                      <input type="text" id="nik" placeholder="Masukkan Nomor Induk Kependudukan" name="nik" required value="{{ old('nik') }}">
 
-                      <label for="NIK">NIK</label>
-                      <input type="text" id="NIK" placeholder="Masukkan Nomor Induk Kependudukan" name="NIK" required>
-
-                      <label for="Alamat">Alamat</label>
-                      <input type="text" id="Alamat" placeholder="Masukkan Alamat" name="Alamat"  required>
+                      <label for="alamat">Alamat</label>
+                      <input type="text" id="alamat" placeholder="Masukkan Alamat" name="alamat" required value="{{ old('alamat') }}">
                       
                       <div class="row">
                         <div class="col">
-                          <label for="Kota">Asal Kota</label>
-                          <input type="text" id="Kota" placeholder="Masukkan Asal Kota" name="Kota" required>
+                          <label for="asal_kota">Asal Kota</label>
+                          <input type="text" id="asal_kota" placeholder="Masukkan Asal Kota" name="asal_kota" required value="{{ old('asal_kota') }}">
                         </div>
                         <div class="col">
-                          <label for="tanggal-lahir">Tanggal Lahir</label>
-                      <input type="date" id="tanggal-lahir" name="tanggal-lahir" required>
+                          <label for="tanggal_lahir">Tanggal Lahir</label>
+                      <input type="date" id="tanggal_lahir" name="tanggal_lahir" required value="{{ old('tanggal_lahir') }}">
                         </div>
                       </div>
-                      <label for="Email">E-Mail</label>
-                      <input type="text" id="Email" placeholder="Masukkan Email" name="Email" required>
+                      <label for="email">E-Mail</label>
+                      <input type="email" id="email" placeholder="Masukkan Email" name="email" required value="{{ old('email') }}">
                       
-                      <label for="NoHp">Nomor Handphone</label>
-                      <input type="text" id="NoHp" placeholder="Masukkan Nomor Handphone (whatsapp)" name="Nomor" required>
+                      <label for="no_hp">Nomor Handphone</label>
+                      <input type="text" id="no_hp" placeholder="Masukkan Nomor Handphone (whatsapp)" name="no_hp" required value="{{ old('no_hp') }}">
 
-                    </form>
+                    
                   </div>
 
             </div>
@@ -102,6 +113,7 @@
                     <div class="line"></div>
 
                     <h1 class="title">{{ $post->title }}</h1>
+                    <input type="hidden" id="title" name="title" value="{{ $post->title }}" readonly>
                     <div class="paket-item">
                       
                       <div class="jadwal">
@@ -171,36 +183,89 @@
             <div class="row">
               <div class="form2">
                 <div class="harga-paket">
-                  <h1>Konfirmasi Booking</h1>
-                  <h2>Total :</h2>
-                  <?php
-                  if(isset($_POST['simpan'])){
-                    echo '<table>';
-                    echo '<tr><td><h3>'.'Rp. '.'</h3></td><td><h3>'.$_POST['radio'].'</h3></td></tr>';
-                    echo '</table>';
-                    }
-                  ?>
+                  <h1>Pilihan Harga Paket</h1>
+                  <div class="price-category-item">
+                            
+                            <div class="solo">
+                              <div class="row">
+                                <div class="col">
+                                  <label class="radio-btn">Solo
+                                    <input type="radio" id="radio" name="radio" value="Solo">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+      
+                                <div class="col">
+                                  <p class="right">{{ $post->formatRupiah('solo') }}/pax</p>
+                                </div>
+                              </div>    
+                            </div>
+      
+                            <div class="duo">
+                              <div class="row">
+                                <div class="col">
+                                  <label class="radio-btn">Duo
+                                    <input type="radio" id="radio" name="radio" value="Duo">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+      
+                                <div class="col">
+                                  <p class="right">{{ $post->formatRupiah('duo') }}/pax</p>
+                                </div>
+                              </div>    
+                            </div>
+      
+                            <div class="triple">
+                              <div class="row">
+                                <div class="col">
+                                  <label class="radio-btn">Triple
+                                    <input type="radio" id="radio" name="radio" value="Triple">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+      
+                                <div class="col">
+                                  <p class="right">{{ $post->formatRupiah('triple') }}/pax</p>
+                                </div>
+                              </div>    
+                            </div>
+      
+      
+                            <div class="quad">
+                              <div class="row">
+                                <div class="col">
+                                  <label class="radio-btn">Quad
+                                    <input type="radio" id="radio" name="radio" value="Quad">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+      
+                                <div class="col">
+                                  <p class="right">{{ $post->formatRupiah('quad') }}/pax</p>
+                                </div>
+                              </div>    
+                            </div>
+
+                          </div> 
   
-                  <div class="booking-confirm">
+                  <!-- <div class="booking-confirm">
                     <input type="checkbox" name="confirm" id="confirm" required>
                         <label for="confirm">Saya menyetujui persyaratan booking</label>
-                  </div>
+                  </div> -->
   
-                        <button class="booking-btn">
+                        <button class="booking-btn" type="submit">
                           Booking Sekarang
                         </button>
                 </div>
               </div>
              
             </div>
-              
+            </form>
             </div>
             
         </div>
-
-        </div>
-          
-          
+  
         </div>
 
     </section>
