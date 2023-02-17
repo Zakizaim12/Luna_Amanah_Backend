@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Status;
 use App\Models\booking;
+use PDF;
 use Illuminate\Http\Request;
 use App\Exports\BookingExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -21,6 +22,12 @@ class BookingController extends Controller
     public function export() 
     {
         return Excel::download(new BookingExport, 'booking.xlsx');  
+    }
+    public function invoice(booking $pembayaran)
+    {
+        $pdf = PDF::loadview('invoice-pdf', ['pembayaran' => $pembayaran]);
+        $namaPDF = "Invoice dan Id Card " .$pembayaran->nama_depan. ' ' .$pembayaran->nama_belakang. '.pdf';
+        return $pdf->download($namaPDF);
     }
     public function index()
     {
@@ -78,9 +85,12 @@ class BookingController extends Controller
      * @param  \App\Models\booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(booking $booking)
+    public function show(booking $pembayaran)
     {
-        //
+        // return view('dashboard.pembayaran.show', [
+        //     'pembayaran' => $pembayaran
+        // ]);
+        
     }
 
     /**

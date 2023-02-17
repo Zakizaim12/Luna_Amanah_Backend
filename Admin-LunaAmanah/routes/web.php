@@ -107,6 +107,8 @@ Route::get('dakwahs/{dakwah:slug}', [DakwahController::class, 'show']);
 
 Route::resource('/dashboard/pembayaran', BookingController::class)->middleware('auth');
 Route::get('/export/excel', [BookingController::class, 'export'])->middleware('auth');
+Route::get('/dashboard/pembayaran/{pembayaran}', [BookingController::class, 'invoice'])->middleware('auth');
+
 // Route::get('/dashboard/pembayaran', [BookingController::class, 'index'])->middleware('auth');
 // Route::delete('/dashboard/pembayaran', [BookingController::class, 'destroy'])->middleware('auth');
 // // Route::get('/dashboard/pembayaran/{{ $booking->title }}', [BookingController::class, 'show'])->middleware('auth');

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Durasi;
 use App\Models\Category;
 use App\Models\booking;
+use App\Models\Star;
 use App\Models\Status;
 use Illuminate\Database\Seeder;
 
@@ -75,8 +76,20 @@ class DatabaseSeeder extends Seeder
             'slug' => 'paket-tour',
         ]);
 
-        Status::create([
-            'status_pembayaran' => 'Lunas'
+        Star::create([
+            'hotel_bintang' => '1'
+        ]);
+        Star::create([
+            'hotel_bintang' => '2'
+        ]);
+        Star::create([
+            'hotel_bintang' => '3'
+        ]);
+        Star::create([
+            'hotel_bintang' => '4'
+        ]);
+        Star::create([
+            'hotel_bintang' => '5'
         ]);
 
         Status::create([

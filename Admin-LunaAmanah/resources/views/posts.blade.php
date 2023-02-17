@@ -92,7 +92,17 @@
                 <p class="card-text">Total Seat : {{ $post->total_seat }} pax</p>
                 <p class="card-text">Berangkat dari : {{ $post->berangkat_dari }}</p>
                 <p class="card-text">Maskapai : {{ $post->maskapai }}</p>
+                @if($post->star->id == 1)
+                <p class="card-text">Hotel : <span class="fa fa-star"><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></p>
+                @elseif($post->star->id == 2)
+                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></p>
+                @elseif($post->star->id == 3)
+                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span></p>
+                @elseif($post->star->id == 4)
+                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"><span class="fa fa-star-o"></span></span></p>
+                @else
                 <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                @endif
                 <a href="/posts/{{ $post->slug }}" class="button btn btn-primary">Detail Paket</a>
             </div>
         </div>

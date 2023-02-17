@@ -8,12 +8,13 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\booking;
+use App\Models\Star;
 class PostController extends Controller
 {
     public function index(){    
         return view('posts', [
             "active" => 'posts',
-            "posts" => Post::latest()->filter(request(['search' , 'category', 'author']))->paginate(6)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search' , 'category', 'author']))->paginate(6)->withQueryString(),
         ]);
     }
 

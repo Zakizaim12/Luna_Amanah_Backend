@@ -26,9 +26,10 @@
               <th scope="col">NIK</th>
               <th scope="col">Tanggal Lahir</th>
               <th scope="col">Email</th>
-              <th scope="col">Nama Paket</th>
+              <th scope="col">Jenis Paket</th>
               <th scope="col">Harga Paket</th>
               <th scope="col">Status Pembayaran</th>
+              <th scope="col">Cetak Invoice dan ID Card</th>
             </tr>
           </thead>
           <tbody>
@@ -43,8 +44,6 @@
                 <td>{{ $booking->nik }}</td>
                 <td>{{ $booking->tanggal_lahir }}</td>
                 <td>{{ $booking->email }}</td>
-                
-                
                 <td>{{ $booking->radio }}</td>
                 <td>{{ $booking->formatRupiah('harga_paket')}}</td>
                 @if($booking->status->id == 1)
@@ -54,7 +53,9 @@
                 @else
                   <td ><center><a class="btn btn-warning" style="font-size: 10px">Tanpa Keterangan</a></center></td> 
                 @endif
+                <td><a href="/dashboard/pembayaran/{{ $booking->id }}" class="badge bg-info"><span data-feather="printer"></span></a></td>
                 <td>
+                    <!-- <a href="/dashboard/pembayaran/{{ $booking->id }}" class="badge bg-info"><span data-feather="eye"></span></a> -->
                     <a href="/dashboard/pembayaran/{{ $booking->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
                     <form action="/dashboard/pembayaran/{{ $booking->id}}" method="post" class="d-inline">
                       @method('delete')

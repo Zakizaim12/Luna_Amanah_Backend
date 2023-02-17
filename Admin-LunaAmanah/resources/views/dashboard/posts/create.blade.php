@@ -22,6 +22,19 @@
     </div>
 
     <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-select" name="category_id">
+      @foreach($categories as $category)    
+      @if(old('category_id') == $category->id)
+          <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+      @else
+          <option value="{{ $category->id }}">{{ $category->name }}</option>
+      @endif 
+      @endforeach
+      </select>
+  </div>
+
+    <div class="mb-3">
         <label for="jadwal" class="form-label">Jadwal</label>
         <input type="text" class="form-control @error('jadwal') is-invalid @enderror" id="jadwal" name="jadwal" required value="{{ old('jadwal') }}">
         @error('jadwal')
@@ -42,6 +55,20 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
+
+    <div class="mb-3">
+      <label for="star" class="form-label">Hotel Bintang</label>
+      <select class="form-select" name="star_id">
+      @foreach($stars as $star)    
+      @if(old('star_id') == $star->id)
+          <option value="{{ $star->id }}" selected>{{ $star->hotel_bintang }}</option>
+      @else
+          <option value="{{ $star->id }}">{{ $star->hotel_bintang  }}</option>
+      @endif 
+      @endforeach
+      </select>
+  </div>
+
     <div class="mb-3">
         <label for="maskapai" class="form-label">Maskapai</label>
         <input type="text" class="form-control @error('maskapai') is-invalid @enderror" id="maskapai" name="maskapai" required value="{{ old('maskapai') }}">
@@ -181,18 +208,6 @@
     <div class="mb-3">
         <label for="hari16" class="form-label">Hari 16</label>
         <input type="text" class="form-control" id="hari16" name="hari16" value="{{ old('hari16') }}">
-    </div>
-    <div class="mb-3">
-        <label for="category" class="form-label">Category</label>
-        <select class="form-select" name="category_id">
-        @foreach($categories as $category)    
-        @if(old('category_id') == $category->id)
-            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-        @else
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endif 
-        @endforeach
-        </select>
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Post Image</label>
