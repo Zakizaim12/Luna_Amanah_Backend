@@ -4,7 +4,7 @@
     <div class="row my-3">
         <div class="col-lg-8">
             <h1 class="mb-3">{{ $post->title }}</h1>
-            <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left"></span> Back to All My Posts</a>
+            <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left"></span> Kembali</a>
             <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
             <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                 @method('delete')
@@ -17,7 +17,26 @@
                 </div>
             @else
                 <img src="http://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
-            @endif           
+            @endif     
+            <h3 class="my-3 fs-5"><b>Kategori:</b> {{ $post->category->name }}</h3>
+            <h3 class="my-3 fs-5"><b>Jadwal keberangkatan:</b> {{ $post->jadwal->translatedFormat('l, d M Y')}}</h3>
+            <h3 class="my-3 fs-5"><b>Total seat:</b> {{ $post->total_seat }}</h3>
+            <h3 class="my-3 fs-5"><b>Seat tersisa :</b> {{ $post->seat_tersedia }}</h3>
+            <h3 class="my-3 fs-5"><b>Berangkat dari:</b> {{ $post->berangkat_dari }}</h3>
+            <h3 class="my-3 fs-5"><b>Maskapai:</b> {{ $post->maskapai }}</h3>
+            <h3 class="my-3 fs-5"><b>Hotel:</b> 
+              @if($post->star->id == 1)
+              <span class="fa-solid fa-star">
+              @elseif($post->star->id == 2)
+              <span class="fa-solid fa-star"><span class="fa-solid fa-star">
+              @elseif($post->star->id == 3)
+              <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+              @elseif($post->star->id == 4)
+              <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+              @else
+              <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+              @endif
+            </h3>
             <article class="my-3 fs-5">{!! $post->body !!}</article>
             <div>
                   <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="120">
@@ -213,5 +232,6 @@
                 </div>
         </div>
     </div>
+    
 </div>
 @endsection

@@ -18,9 +18,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(mt_rand(2,8)),
-            'jadwal' => fake()->sentence(mt_rand(1,2)),
+            'jadwal' => fake()->dateTime(),
             'durasi_id' => mt_rand(1,8),
             'total_seat' => fake()->randomNumber(2,true),
+            'seat_tersedia' => fake()->randomNumber(2,true),
             'berangkat_dari' => fake()->sentence(mt_rand(1,2)),
             'maskapai' => fake()->sentence(mt_rand(1,2)),
             'solo' => fake()->randomNumber(8,true),

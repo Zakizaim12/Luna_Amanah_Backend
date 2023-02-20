@@ -20,8 +20,9 @@ return new class extends Migration
             $table->foreignId('durasi_id');
             $table->foreignId('user_id');
             $table->string('title');
-            $table->text('jadwal');
+            $table->date('jadwal');
             $table->integer('total_seat');
+            $table->integer('seat_tersedia');
             $table->text('berangkat_dari');
             $table->text('maskapai');
             $table->integer('solo');

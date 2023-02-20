@@ -69,7 +69,7 @@
 
           <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
           <div class="row">
-      @include('partials.filter')
+      {{-- @include('partials.filter') --}}
 
 
 @if($posts->count())
@@ -87,21 +87,21 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <p><small class="text-muted">By. <a href="/posts?author={{ $post->author->username ?? 'None' }}" class="text-decoration-none">{{ $post->author->name ?? 'None' }}</a> {{ $post->created_at->diffForHumans() }}</small></p>
-                <p class="card-text">Seat Tersisa : 19</p>
-                <p class="card-text">Jadwal Keberangkatan : {{ $post->jadwal }}</p>
+                <p class="card-text">Jadwal Keberangkatan : {{ $post->jadwal->translatedFormat('l, d M Y')}}</p>
                 <p class="card-text">Total Seat : {{ $post->total_seat }} pax</p>
+                <p class="card-text"><b>Seat Tersisa : {{ $post->seat_tersedia }}</b></p>
                 <p class="card-text">Berangkat dari : {{ $post->berangkat_dari }}</p>
                 <p class="card-text">Maskapai : {{ $post->maskapai }}</p>
                 @if($post->star->id == 1)
-                <p class="card-text">Hotel : <span class="fa fa-star"><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></p>
+                <p class="card-text">Hotel : <span class="fa-solid fa-star"></p>
                 @elseif($post->star->id == 2)
-                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></p>
+                <p class="card-text">Hotel : <span class="fa-solid fa-star"><span class="fa-solid fa-star"></p>
                 @elseif($post->star->id == 3)
-                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span></p>
+                <p class="card-text">Hotel : <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"></p>
                 @elseif($post->star->id == 4)
-                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"><span class="fa fa-star-o"></span></span></p>
+                <p class="card-text">Hotel : <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"></p>
                 @else
-                <p class="card-text">Hotel : <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                <p class="card-text">Hotel : <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"></p>
                 @endif
                 <a href="/posts/{{ $post->slug }}" class="button btn btn-primary">Detail Paket</a>
             </div>

@@ -4,7 +4,7 @@
     <div class="row my-3">
         <div class="col-lg-8">
             <h1 class="mb-3">{{ $pembayaran->title }}</h1>
-            <a href="/dashboard/pembayaran" class="btn btn-success"><span data-feather="arrow-left"></span> Back to All Pembayaran</a>
+            <a href="/dashboard/pembayaran" class="btn btn-success"><span data-feather="arrow-left"></span> Kembali</a>
             <a href="/dashboard/pembayaran/{{ $pembayaran->id }}/edit" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
             <form action="/dashboard/pembayaran/{{ $pembayaran->id }}" method="post" class="d-inline">
                 @method('delete')

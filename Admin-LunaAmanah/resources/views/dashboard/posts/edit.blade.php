@@ -37,7 +37,7 @@
 
     <div class="mb-3">
         <label for="jadwal" class="form-label">Jadwal</label>
-        <input type="text" class="form-control @error('jadwal') is-invalid @enderror" id="jadwal" name="jadwal" required value="{{ old('jadwal' , $post->jadwal) }}">
+        <input type="date" class="form-control @error('jadwal') is-invalid @enderror" id="jadwal" name="jadwal" required value="{{ old('jadwal' , $post->jadwal) }}">
         @error('jadwal')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -63,6 +63,14 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
+    <div class="mb-3">
+      <label for="seat_tersedia" class="form-label">Seat Tersedia</label>
+      <input type="text" class="form-control @error('seat_tersedia') is-invalid @enderror" id="seat_tersedia" name="seat_tersedia" required value="{{ old('seat_tersedia', $post->seat_tersedia) }}">
+      @error('seat_tersedia')
+        <div class="invalid-feedback">{{ $message }}</div>
+      @enderror
+  </div>
+
     <div class="mb-3">
         <label for="berangkat_dari" class="form-label">Berangkat Dari</label>
         <input type="text" class="form-control @error('berangkat_dari') is-invalid @enderror" id="berangkat_dari" name="berangkat_dari" required value="{{ old('berangkat_dari' , $post->berangkat_dari) }}">

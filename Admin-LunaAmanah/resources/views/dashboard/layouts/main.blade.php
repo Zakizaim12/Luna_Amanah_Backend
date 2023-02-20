@@ -20,6 +20,7 @@
         display:none;
       }
     </style>
+    <script src="https://kit.fontawesome.com/a2a65e7040.js" crossorigin="anonymous"></script>
   </head>
   <body>
     

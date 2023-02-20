@@ -106,7 +106,7 @@
           <div class="container">
             <ol>
                 <li><a href="/categories">Paket Perjalanan</a></li>
-                <li><a href="">Paket Umroh</a></li>
+                <li><a href="#">Paket Umroh</a></li>
                 <li>Detail Paket</li>
             </ol>
           </div>
@@ -145,7 +145,7 @@
                   <div class="nama-paket">
                     <div class="nama-paket-header">
                       <h2>{{ $post->title }}</h2>
-                      <h3>Seat Tersisa:19</h3>
+                      <h3>Seat tersisa : {{ $post->seat_tersedia }}</h3>
                       </div>
                       <div class="line"></div>
                       <div class="paket-item">
@@ -157,7 +157,7 @@
                               <p class="category"><span class="fa fa-calendar"></span>  Tanggal :</p>
                             </div>
                             <div class="col">
-                              <p class="right"><time datetime="2023-01-01"></time>{{ $post->jadwal }}</p>
+                              <p class="right"><time datetime="2023-01-01"></time>{{ $post->jadwal->translatedFormat('l, d M Y')}}</p>
                             </div>
                           </div>
                         </div>
@@ -202,7 +202,19 @@
                               <p><span class="fa fa-building"></span> Hotel :</p>
                             </div>
                             <div class="col">
-                              <p class="right"><span class="fa-solid fa-star"></span><span class="fa-solid fa-star"></span><span class="fa-solid fa-star"></span><span class="fa-solid fa-star"></span><span class="fa-solid fa-star"></span></p>
+                              <p class="right">
+                                @if($post->star->id == 1)
+                <span class="fa-solid fa-star">
+                @elseif($post->star->id == 2)
+                <span class="fa-solid fa-star"><span class="fa-solid fa-star">
+                @elseif($post->star->id == 3)
+                <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+                @elseif($post->star->id == 4)
+                <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+                @else
+                <span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star"><span class="fa-solid fa-star">
+                @endif
+                              </p>
                             </div>
                           </div>
                         </div>

@@ -16,8 +16,10 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
     use HasFormatRupiah;
+    
 
     //protected $fillable = ['title', 'body'];
+    protected $dates = ['jadwal'];
     protected $guarded = ['id'];
     protected $with = ['author','category'];
     public function scopeFilter($query, array $filters){
